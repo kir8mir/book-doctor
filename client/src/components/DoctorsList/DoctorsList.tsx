@@ -1,8 +1,18 @@
 import React from 'react';
-import { DoctorItem } from '../DoctorItem/DoctorItem.tsx';
+import { DoctorItem } from '../DoctorItem/DoctorItem';
+import { getDocs } from '../../api/api';
+import { FC } from 'react';
 
-export const DoctorsList = () => {
+interface Props {
+  docs: any[]
+}
+
+export const DoctorsList: FC<Props> = ({ docs }): any => {
+
   return (
-    <DoctorItem />
+    docs.map((doc) => (
+      <DoctorItem key={doc.id} />
+    ))
+
   );
 };

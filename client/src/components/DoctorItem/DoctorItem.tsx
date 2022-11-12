@@ -1,12 +1,12 @@
 import React from 'react';
-import panda from './panda.jpg';
+// import panda from './panda.jpg';
 import './DoctorItem.scss';
 
 export const DoctorItem = () => {
   return (
     <div className="doctor-card">
       <img
-        src={panda}
+        src=''
         alt="doctor-panda"
         className="doctor-card__img"
       />
