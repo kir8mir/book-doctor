@@ -1,0 +1,14 @@
+#root {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+}
+
+.App {
+  display: flex;
+  background-color: #eaf2f2;
+  flex-direction: column;
+  height: 50vh;
+  width: 100vw;
+  padding: 25px;
+}

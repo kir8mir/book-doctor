@@ -1,0 +1,31 @@
+.doctor-card {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  width: max-content;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  gap: 10px;
+
+  &:hover {
+    border: 1px solid black;
+  }
+
+  &__img {
+    width: 65px;
+    height: 65px;
+    border-radius: 100%;
+  }
+
+  &__description {
+    &-name {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    &-position {
+      font-size: 14px;
+    }
+  }
+}
