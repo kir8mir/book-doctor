@@ -1,0 +1,10 @@
+.doctors-list {
+  display: flex;
+  gap: 10%;
+  transition: 10s;
+  transition: all 1s ease-in-out;
+}
+
+.doctors-list-open {
+  height: 100%;
+}

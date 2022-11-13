@@ -1,0 +1,26 @@
+.time-grid {
+  display: grid;
+  max-width: 100%;
+  grid-template-columns: repeat(3, 33%);
+  grid-template-rows: repeat(3, 33%);
+  width: 16%;
+  height: 28%;
+
+  &-cell {
+    border: 1px solid black;
+    background-color: #eaf2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  
+  &-off {
+    opacity: 30%;
+    cursor: unset;
+  }
+
+    &:hover {
+      background-color: #eaf2a4;
+    }
+  }
+}

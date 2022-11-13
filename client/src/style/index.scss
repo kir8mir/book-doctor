@@ -8,7 +8,51 @@
   display: flex;
   background-color: #eaf2f2;
   flex-direction: column;
-  height: 50vh;
+  height: 66vh;
   width: 100vw;
-  padding: 25px;
+  padding: 25px 100px;
+}
+
+.react-datetime-picker {
+  transition: all 1s;
+  min-width: 100%;
+}
+
+.react-calendar {
+  animation-name: show;
+  animation-duration: 0.6s;
+  animation-timing-function: linear;
+  max-width: 35%;
+  margin: 0 auto;
+
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.react-datetime-picker__inputGroup {
+  display: none;
+  min-width: calc(4px + (4px * 3) + 0.54em * 6 + 0.217em * 2);
+  flex-grow: 1;
+  padding: 0 2px;
+  justify-content: center;
+}
+
+.react-datetime-picker__calendar {
+  min-width: 100%;
+}
+
+.react-datetime-picker__wrapper {
+  justify-content: center;
+}
+
+@keyframes show {
+  from {
+    max-width: 10%;
+  }
+
+  to {
+    max-width: 35%;
+  }
 }

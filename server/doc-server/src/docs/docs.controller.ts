@@ -17,8 +17,15 @@ export class DocsController {
   addDoc(
     @Body('name') docName: string,
     @Body('position') docPosition: string,
+    @Body('img') docImg: string,
+    @Body('availableTime') availableTime: string[],
   ): any {
-    return this.docsService.insertDoc(docName, docPosition);
+    return this.docsService.insertDoc(
+      docName,
+      docPosition,
+      docImg,
+      availableTime,
+    );
   }
 
   @Get()
@@ -36,8 +43,16 @@ export class DocsController {
     @Param('id') docId: string,
     @Body('name') docName: string,
     @Body('position') docPosition: string,
+    @Body('img') docImg: string,
+    @Body('availableTime') availableTime: string[],
   ) {
-    return await this.docsService.updateDoc(docId, docName, docPosition);
+    return await this.docsService.updateDoc(
+      docId,
+      docName,
+      docPosition,
+      docImg,
+      availableTime,
+    );
   }
 
   @Delete(':id')

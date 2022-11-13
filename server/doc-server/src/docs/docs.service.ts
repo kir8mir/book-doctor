@@ -10,8 +10,13 @@ export class DocsService {
 
   constructor(@InjectModel('Docs') private readonly docsModel: Model<Doc>) {}
 
-  async insertDoc(name: string, position: string) {
-    const newDoc = new this.docsModel({ name, position });
+  async insertDoc(
+    name: string,
+    position: string,
+    img: string,
+    availableTime: string[],
+  ) {
+    const newDoc = new this.docsModel({ name, position, img, availableTime });
     return await newDoc.save();
   }
 
@@ -22,15 +27,29 @@ export class DocsService {
       id: doc.id,
       name: doc.name,
       position: doc.position,
+      img: doc.img,
+      availableTime: doc.availableTime,
     }));
   }
 
   async fetchOneDoc(docId: string) {
     const aDoc = await this.findDoc(docId);
-    return { id: aDoc.id, name: aDoc.name, position: aDoc.position };
+    return {
+      id: aDoc.id,
+      name: aDoc.name,
+      position: aDoc.position,
+      img: aDoc.img,
+      availableTime: aDoc.availableTime,
+    };
   }
 
-  async updateDoc(docId: string, name: string, position: string) {
+  async updateDoc(
+    docId: string,
+    name: string,
+    position: string,
+    img: string,
+    availableTime: string[],
+  ) {
     const updatedDoc = await this.findDoc(docId);
 
     if (name) {
@@ -38,6 +57,13 @@ export class DocsService {
     }
     if (position) {
       updatedDoc.position = position;
+    }
+    if (img) {
+      updatedDoc.img = img;
+    }
+
+    if (availableTime) {
+      updatedDoc.availableTime = availableTime;
     }
 
     updatedDoc.save();

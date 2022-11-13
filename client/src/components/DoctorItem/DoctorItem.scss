@@ -1,13 +1,14 @@
 .doctor-card {
   display: flex;
+  flex-direction: column;
   align-items: center;
   padding: 10px;
   background-color: #fff;
-  width: max-content;
+  width: 33%;
   border-radius: 20px;
   border: 1px solid transparent;
   gap: 10px;
-
+  
   &:hover {
     border: 1px solid black;
   }
@@ -27,5 +28,26 @@
     &-position {
       font-size: 14px;
     }
+  }
+}
+
+.doctor-card.selected-doctor {
+  position: relative;
+  animation-name: increase;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  width: 100%;
+  
+}
+
+@keyframes increase {
+  from {
+    width: 10%;
+    height: 10%;
+  }
+
+  to {
+    width: 100%;
+    height: 100%;
   }
 }
