@@ -10,6 +10,8 @@
       "password": "test",
       "visits": []
     }
+ 
+- Markup without mobile responsive yet.
 
 # Server part:
 - The server part deployed on heroku - https://doctor-book.herokuapp.com
