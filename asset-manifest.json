@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/book-doctor/static/css/main.536c8418.css",
+    "main.js": "/book-doctor/static/js/main.20fee182.js",
+    "index.html": "/book-doctor/index.html",
+    "main.536c8418.css.map": "/book-doctor/static/css/main.536c8418.css.map",
+    "main.20fee182.js.map": "/book-doctor/static/js/main.20fee182.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.536c8418.css",
+    "static/js/main.20fee182.js"
+  ]
+}
