@@ -18,13 +18,15 @@ export const App = () => {
 
 
   useEffect(() => {
-    getDocs().then(res => {
-      setDocs(res.data);
-    });
+
+    const allDocs = async () => (await getDocs()).data;
+    const setAllDocs = async () => setDocs(await allDocs() as any);
+    setAllDocs();
 
     if (userName && userPass) {
-      getAcces(userName, userPass)
-        .then(data => setUserData(data));
+      const userAcces = async () => await getAcces(userName, userPass);
+      const setUserAcces = async () => setUserData(await userAcces());
+      setUserAcces();
     }
   }, [userName, userPass, trigger]);
 
@@ -33,7 +35,11 @@ export const App = () => {
       {!userData
         ? <Login setUserName={setUserName} setUserPass={setUserPass} />
         : <>
-          <DoctorsList docs={docs} userData={userData} triggerTrigger={triggerTrigger} />
+          <DoctorsList
+            docs={docs}
+            userData={userData}
+            triggerTrigger={triggerTrigger}
+          />
           <Visits userData={userData} docs={docs} />
         </>
 
@@ -41,3 +47,7 @@ export const App = () => {
     </div>
   );
 };
+function async(): void {
+  throw new Error('Function not implemented.');
+}
+

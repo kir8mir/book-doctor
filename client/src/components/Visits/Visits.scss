@@ -1,4 +1,4 @@
-.visits-list {
+.visits {
   display: flex;
   gap: 20px;
   margin: auto 0;
@@ -7,9 +7,9 @@
   border-radius: 10px;
   min-height: 128px;
 
-  .visits-card {
+  &__card {
     padding: 20px 10px;
     background-color: #eaf2f2;
     border-radius: 10px;
   }
-}
+} 

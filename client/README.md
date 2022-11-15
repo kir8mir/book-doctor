@@ -1,15 +1,10 @@
-# 🚀 Welcome to your new awesome project!
+# 🚀 Welcome to doctor booking service!
 
-This project has been created using **webpack-cli**, you can now run
-
-```
-npm run build
-```
-
-or
-
-```
-yarn build
-```
-
-to bundle your application
+- For using service you need to login first
+  + use login - test, password - test 
+  + or create your own user account with post request to https://doctor-book.herokuapp.com/users/
+    + user DB example: {
+      "username": "test",
+      "password": "test",
+      "visits": []
+    }

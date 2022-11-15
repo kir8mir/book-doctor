@@ -19,8 +19,23 @@ export const DoctorsList: FC<Props> = ({ docs, userData, triggerTrigger }): any 
     <div className={classnames('doctors-list', { 'doctors-list-open': selectedDocID })}>
       {docs.map((doc) => (
         !selectedDocID
-          ? <DoctorItem key={doc.id} doc={doc} selectedDocID={selectedDocID} setSelectedDocID={setSelectedDocID} userData={userData} triggerTrigger ={triggerTrigger} />
-          : selectedDocID === doc.id && <DoctorItem key={doc.id}  doc={doc} selectedDocID={selectedDocID} setSelectedDocID={setSelectedDocID} userData={userData} triggerTrigger={triggerTrigger} />
+          ? <DoctorItem
+            key={doc.id}
+            doc={doc}
+            selectedDocID={selectedDocID}
+            setSelectedDocID={setSelectedDocID}
+            userData={userData}
+            triggerTrigger={triggerTrigger}
+          />
+          : selectedDocID === doc.id
+          && <DoctorItem
+            key={doc.id}
+            doc={doc}
+            selectedDocID={selectedDocID}
+            setSelectedDocID={setSelectedDocID}
+            userData={userData}
+            triggerTrigger={triggerTrigger}
+          />
       ))}
     </div>
 

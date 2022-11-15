@@ -9,13 +9,14 @@
   gap: 5%;
   
 
-  &-btn {
+  &__btn {
     background-color: white;
     border-radius: 10px;
     border: 1px solid forestgreen;
     padding: 5px 10px;
     text-decoration: none;
     color: black;
+    transition: background-color 0.3s;
 
     &:hover {
       background-color: #FFC;

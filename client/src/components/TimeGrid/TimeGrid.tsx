@@ -12,7 +12,6 @@ export const TimeGrid: FC<Props> = ({ availableTime, setTime }) => {
 
   const isPosibleTime = (time: string) => {
     if (!availableTime.includes(time)) {
-      // alert('Doctor is busy in this time');
       setTime('');
 
       return;

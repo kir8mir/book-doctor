@@ -12,7 +12,7 @@ export const CardNav: FC<Props> = ({ setIsVisibleCalendar, setShowTime }) => {
     <div className="card-nav">
       <a
         href="#"
-        className="card-nav-btn calendar-open-btn"
+        className="card-nav__btn calendar-open-btn"
         onClick={() => setIsVisibleCalendar((value: boolean) => !value)}
       >
         Open Calendar
@@ -20,7 +20,7 @@ export const CardNav: FC<Props> = ({ setIsVisibleCalendar, setShowTime }) => {
 
       <a
         href="#"
-        className="card-nav-btn time-open-btn"
+        className="card-nav__btn time-open-btn"
         onClick={() => setShowTime((value: boolean) => !value)}
       >
         Open Time Picker

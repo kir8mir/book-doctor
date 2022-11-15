@@ -10,15 +10,34 @@ import { bookUser } from '../../auth/auth';
 import { setDocVisit } from '../../auth/auth';
 
 interface Props {
-  doc: { name: string, position: string, id: string, img: string, availableTime: string[], visitsDoc: object[] }
+  doc: {
+    name: string,
+    position: string,
+    id: string,
+    img: string,
+    availableTime: string[],
+    visitsDoc: object[]
+  }
   setSelectedDocID: any
   selectedDocID: string
   userData: any;
   triggerTrigger: any;
 }
 
-export const DoctorItem: FC<Props> = ({ doc, setSelectedDocID, selectedDocID, userData, triggerTrigger}) => {
-  const { name, position, id, img, availableTime, visitsDoc } = doc;
+export const DoctorItem: FC<Props> = ({
+  doc,
+  setSelectedDocID,
+  selectedDocID,
+  userData,
+  triggerTrigger
+}) => {
+  const {
+    name,
+    position,
+    id, img,
+    availableTime,
+    visitsDoc
+  } = doc;
   const [openCalendar, setOpenCalendar] = useState(false);
   const [selectedDoc, setSelectedDoc] = useState(false);
   const [showTime, setShowTime] = useState(false);
@@ -35,10 +54,56 @@ export const DoctorItem: FC<Props> = ({ doc, setSelectedDocID, selectedDocID, us
     return validDate;
   };
 
+  const onCalendar = () => {
+    if (!openCalendar) {
+      setOpenCalendar(true);
+      setSelectedDocID((state: string) => {
+        return state === id ? '' : id;
+      });
+      setTimeout(() => setSelectedDoc(true), 500);
+      setTimeout(() => setShowTime(true), 900);
+    }
+  };
+
+  const offCalendar = () => {
+    setIsVisibleCalendar(true);
+    setOpenCalendar(false);
+    setSelectedDocID((state: string) => {
+      return state === id ? '' : id;
+    });
+    setSelectedDoc(false);
+    setShowTime(false);
+  };
+
+  const submit = () => {
+    setIsVisibleCalendar(true);
+    setOpenCalendar(false);
+    setSelectedDocID((state: string) => {
+      return state === id ? '' : id;
+    });
+    setSelectedDoc(false);
+    setShowTime(false);
+    setBookUserTrigger(true);
+    alert('Your visit was booked!');
+  };
+
   useEffect(() => {
     if (bookUserTrigger) {
-      bookUser(userData.userId, id, value, time, message, userData.visits);
-      setDocVisit(id, userData.userId, value, time, visitsDoc, availableTime);
+      bookUser(
+        userData.userId,
+        id, value,
+        time,
+        message,
+        userData.visits
+      );
+      setDocVisit(
+        id,
+        userData.userId,
+        value,
+        time,
+        visitsDoc,
+        availableTime
+      );
       triggerTrigger((value: any) => !value);
     }
   }, [bookUserTrigger]);
@@ -46,31 +111,13 @@ export const DoctorItem: FC<Props> = ({ doc, setSelectedDocID, selectedDocID, us
   return (
     <div
       className={classnames('doctor-card', { 'selected-doctor': openCalendar })}
-      onClick={() => {
-        if (!openCalendar) {
-          setOpenCalendar(true);
-          setSelectedDocID((state: string) => {
-            return state === id ? '' : id;
-          });
-          setTimeout(() => setSelectedDoc(true), 500);
-          setTimeout(() => setShowTime(true), 900);
-        }
-
-      }}
+      onClick={onCalendar}
     >
       {openCalendar &&
         <a
           href="#"
           className="close-btn"
-          onClick={() => {
-            setIsVisibleCalendar(true);
-            setOpenCalendar(false);
-            setSelectedDocID((state: string) => {
-              return state === id ? '' : id;
-            });
-            setSelectedDoc(false);
-            setShowTime(false);
-          }}
+          onClick={offCalendar}
         >
           CLOSE
         </a>}
@@ -104,17 +151,7 @@ export const DoctorItem: FC<Props> = ({ doc, setSelectedDocID, selectedDocID, us
             <a
               href="#"
               className="submit-booking-btn"
-              onClick={() => {
-                setIsVisibleCalendar(true);
-                setOpenCalendar(false);
-                setSelectedDocID((state: string) => {
-                  return state === id ? '' : id;
-                });
-                setSelectedDoc(false);
-                setShowTime(false);
-                setBookUserTrigger(true);
-                alert('Your visit was booked!');
-              }}
+              onClick={submit}
             >
               Submit
             </a>
