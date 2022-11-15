@@ -4,7 +4,7 @@ export const getAcces = async (login, pass) => {
   let access_token;
   let userData;
 
-  await axios.post('http://localhost:3000/auth/login', {
+  await axios.post('https://doctor-book.herokuapp.com/auth/login', {
     'username': login,
     'password': pass
   })
@@ -18,7 +18,7 @@ export const getAcces = async (login, pass) => {
     }
   };
 
-  await axios.get('http://localhost:3000/profile/', config)
+  await axios.get('https://doctor-book.herokuapp.com/profile/', config)
     .then(resp => {
       userData = resp.data;
     });
@@ -28,7 +28,7 @@ export const getAcces = async (login, pass) => {
 };
 
 export const bookUser = (userId, docId, data, time, symptom, visits) => {
-  axios.patch(`http://localhost:3000/users/${userId}`, {
+  axios.patch(`https://doctor-book.herokuapp.com/users/${userId}`, {
     'visits': [...visits, {
       docId,
       data,
@@ -39,7 +39,7 @@ export const bookUser = (userId, docId, data, time, symptom, visits) => {
 };
 
 export const setDocVisit = async (docId, userId, data, time, visits, availableTime) => {
-  await axios.patch(`http://localhost:3000/docs/${docId}`, {
+  await axios.patch(`https://doctor-book.herokuapp.com/docs/${docId}`, {
     'visitsDoc': [...visits, {
       userId,
       data,
@@ -47,7 +47,7 @@ export const setDocVisit = async (docId, userId, data, time, visits, availableTi
     }]
   });
 
-  await axios.patch(`http://localhost:3000/docs/${docId}`, {
+  await axios.patch(`https://doctor-book.herokuapp.com/docs/${docId}`, {
     'availableTime': availableTime.filter(t => t !== time)
   });
 

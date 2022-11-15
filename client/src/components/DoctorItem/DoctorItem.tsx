@@ -75,7 +75,7 @@ export const DoctorItem: FC<Props> = ({ doc, setSelectedDocID, selectedDocID, us
           CLOSE
         </a>}
       <img
-        src={`http://localhost:3000/imgs/${img}`}
+        src={`https://doctor-book.herokuapp.com/imgs/${img}`}
         alt="doctor-panda"
         className="doctor-card__img"
       />
