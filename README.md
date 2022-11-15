@@ -13,7 +13,7 @@
 
 # Server part:
 - The server part deployed on heroku - https://doctor-book.herokuapp.com
-- Server created due to Nest.js
+- Server created due to Nest.js. You can see main comands in the doc-server folder
 - I'm using mongoDB with mongoose in this project:
   + Use this link to make requests for user to DB - https://doctor-book.herokuapp.com/users/
   + Use this link to make requests for doctors to DB - https://doctor-book.herokuapp.com/docs/
