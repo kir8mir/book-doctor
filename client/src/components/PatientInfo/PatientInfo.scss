@@ -1,0 +1,30 @@
+.patient-info {
+  position: absolute;
+  left: 12%;
+  bottom: 30%;
+
+  background-color: #eaf2f2;
+  padding: 15px 30px;
+  border-radius: 10px;
+
+  animation-name: move;
+  animation-duration: 1.5s;
+  animation-timing-function: cubic-bezier(1,-0.97,.32,1);
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@keyframes move {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 100%;
+  }
+
+}

@@ -1,3 +1,4 @@
+import { Role } from '../enums/role.enum';
 import { DocsService } from './docs.service';
 import {
   Controller,
@@ -8,6 +9,7 @@ import {
   Body,
   Param,
 } from '@nestjs/common';
+import { Roles } from '../auth/roles.decorator';
 
 @Controller('docs')
 export class DocsController {
@@ -19,12 +21,14 @@ export class DocsController {
     @Body('position') docPosition: string,
     @Body('img') docImg: string,
     @Body('availableTime') availableTime: string[],
+    @Body('visitsDoc') visitsDoc: object[],
   ): any {
     return this.docsService.insertDoc(
       docName,
       docPosition,
       docImg,
       availableTime,
+      visitsDoc,
     );
   }
 
@@ -45,6 +49,7 @@ export class DocsController {
     @Body('position') docPosition: string,
     @Body('img') docImg: string,
     @Body('availableTime') availableTime: string[],
+    @Body('visitsDoc') visitsDoc: object[],
   ) {
     return await this.docsService.updateDoc(
       docId,
@@ -52,6 +57,7 @@ export class DocsController {
       docPosition,
       docImg,
       availableTime,
+      visitsDoc,
     );
   }
 

@@ -5,6 +5,7 @@ export const DocsSchema = new mongoose.Schema({
   position: { type: String, required: true },
   img: { type: String, required: true },
   availableTime: { type: Array },
+  visitsDoc: Array,
 });
 
 export interface Doc extends mongoose.Document {
@@ -13,4 +14,5 @@ export interface Doc extends mongoose.Document {
   position: string;
   img: string;
   availableTime: string[];
+  visitsDoc: object[];
 }

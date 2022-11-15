@@ -44,12 +44,19 @@
 }
 
 .react-datetime-picker__wrapper {
-  justify-content: center;
+  display: none;
+}
+
+.hero.is-fullheight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 @keyframes show {
   from {
-    max-width: 10%;
+    max-width: 30%;
   }
 
   to {

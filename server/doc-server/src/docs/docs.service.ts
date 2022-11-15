@@ -6,8 +6,6 @@ import { Model } from 'mongoose';
 
 @Injectable()
 export class DocsService {
-  private docs: Doc[] = [];
-
   constructor(@InjectModel('Docs') private readonly docsModel: Model<Doc>) {}
 
   async insertDoc(
@@ -15,8 +13,15 @@ export class DocsService {
     position: string,
     img: string,
     availableTime: string[],
+    visitsDoc: object[],
   ) {
-    const newDoc = new this.docsModel({ name, position, img, availableTime });
+    const newDoc = new this.docsModel({
+      name,
+      position,
+      img,
+      availableTime,
+      visitsDoc,
+    });
     return await newDoc.save();
   }
 
@@ -29,6 +34,7 @@ export class DocsService {
       position: doc.position,
       img: doc.img,
       availableTime: doc.availableTime,
+      visitsDoc: doc.visitsDoc,
     }));
   }
 
@@ -40,6 +46,7 @@ export class DocsService {
       position: aDoc.position,
       img: aDoc.img,
       availableTime: aDoc.availableTime,
+      visitsDoc: aDoc.visitsDoc,
     };
   }
 
@@ -49,6 +56,7 @@ export class DocsService {
     position: string,
     img: string,
     availableTime: string[],
+    visitsDoc: object[],
   ) {
     const updatedDoc = await this.findDoc(docId);
 
@@ -64,6 +72,10 @@ export class DocsService {
 
     if (availableTime) {
       updatedDoc.availableTime = availableTime;
+    }
+
+    if (visitsDoc) {
+      updatedDoc.visitsDoc = visitsDoc;
     }
 
     updatedDoc.save();
