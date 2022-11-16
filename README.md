@@ -1,6 +1,5 @@
 # 🚀 Welcome to doctor booking service!
 - [THE DEMO](https://kir8mir.github.io/book-doctor/)
-- [THE CODE](https://github.dev/kir8mir/book-doctor/tree/main/doc-server)
 
 # Client part:
  - For using service you need to login first
