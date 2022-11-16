@@ -21,3 +21,10 @@
   + Use this link to make requests for doctors to DB - https://doctor-book.herokuapp.com/docs/
 - Here is just two simple roles Admin and User, every doctor is Admin
 - Server has static module whitch preserve images for doctors profile
+
+
+
+
+
+https://user-images.githubusercontent.com/49589547/202182651-2219f39b-104f-43a0-b20b-e4103e5b9d73.mp4
+
