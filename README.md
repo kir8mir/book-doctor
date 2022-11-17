@@ -11,7 +11,7 @@
       "visits": []
     }
  
-- Markup without mobile responsive yet.
+- Markup is ready on desktop, mobile version is not available yet.
 
 # Server part:
 - The server part deployed on heroku - https://doctor-book.herokuapp.com
